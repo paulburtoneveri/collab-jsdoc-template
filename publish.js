@@ -21,6 +21,8 @@ var view;
 
 var outdir = path.normalize(env.opts.destination);
 
+helper.fileExtension = '';
+
 function find(spec) {
     return helper.find(data, spec);
 }
@@ -553,8 +555,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     members.tutorials = tutorials.children;
 
     // output pretty-printed source files by default
-    var outputSourceFiles = conf.default && conf.default.outputSourceFiles !== false ? true :
-        false;
+    var outputSourceFiles = false;
 
     // add template helpers
     view.find = find;
